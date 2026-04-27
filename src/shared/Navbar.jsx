@@ -12,7 +12,6 @@ export default function Navbar() {
         { title: "Men", path: "/Men" },
         { title: "Women", path: "/Women" },
         { title: "Kids", path: "/Kids" },
-        { title: "Register", path: "/Register" }
     ]
     return (
         <div className="text-white bg-black p-4 flex justify-between items-center sticky top-0 w-full z-10">
