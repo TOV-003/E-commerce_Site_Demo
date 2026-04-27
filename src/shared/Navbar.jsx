@@ -11,7 +11,8 @@ export default function Navbar() {
         { title: "Home", path: "/" },
         { title: "Men", path: "/Men" },
         { title: "Women", path: "/Women" },
-        { title: "Kids", path: "/Kids" }
+        { title: "Kids", path: "/Kids" },
+        { title: "Register", path: "/Register" }
     ]
     return (
         <div className="text-white bg-black p-4 flex justify-between items-center sticky top-0 w-full z-10">
@@ -20,7 +21,10 @@ export default function Navbar() {
                 {links.map((el, index) => (<NavLink to={el.path} key={index} className={({ isActive }) => isActive ? "text-red-600" : "text-white"}>{el.title}</NavLink>))}
             </div>
             <div className="font-semibold flex justify-between gap-4">
-                <IoPersonCircleOutline size={24} />
+                <Link to="/Register">
+                    <IoPersonCircleOutline size={24} className="cursor-pointer" />
+                </Link>
+
                 <Link to="/Cart">
                     <IoBagOutline size={24} className="cursor-pointer" />
                 </Link>

@@ -10,6 +10,7 @@ import Kids from './pages/Kids.jsx'
 import ProductProvider from './Context/ProductContext.jsx'
 import SingleProductPage from './pages/SingleProductPage.jsx'
 import Cart from './pages/Cart.jsx'
+import Register from './pages/Register.jsx'
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         element: <Cart />,
         path: "/Cart"
+      },
+      {
+        element: <Register />,
+        path: "/Register"
       }
     ]
   }
