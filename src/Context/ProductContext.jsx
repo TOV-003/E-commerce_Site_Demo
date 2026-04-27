@@ -77,7 +77,7 @@ function ProductProvider({ children }) {
         console.log("prod:", products)
     }, [products])
 
-    return <ProductContext.Provider value={{ products, setProducts, addToCart, cartItems, removeFromCart, getProducts, cartCount }}>{children}</ProductContext.Provider>
+    return <ProductContext.Provider value={{ products, setProducts, addToCart, cartItems, setCartItems, removeFromCart, getProducts, cartCount }}>{children}</ProductContext.Provider>
 }
 
 
