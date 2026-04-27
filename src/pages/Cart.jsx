@@ -21,7 +21,7 @@ export default function Cart() {
                 <div className="main">
                     <div className="section1 flex flex-col gap-2 items-center">
                         <p className="text-4xl text-black font-black">CART</p>
-                        <table className="new  font-semibold text-xl border-collapse text-center border-2 border-black">
+                        <table className="new  font-semibold text-xl border-collapse text-center border-2 border-black max-w-[70vw]">
                             <tr>
                                 <th className="border-2 border-black px-4 py-2" >Image</th>
                                 <th className="border-2 border-black px-4 py-2">Name</th>
