@@ -60,7 +60,7 @@ export default function Cart() {
                                             }}>-</button>
                                         </div>
                                     </td>
-                                    <td className="border-2 border-black px-4 py-2">To be Paid: ${Number(el.price) * Number(el.quantity)}</td>
+                                    <td className="border-2 border-black px-4 py-2">${Number(el.price) * Number(el.quantity)}</td>
                                     <td className="border-2 border-black px-4 py-2">{el.size}</td>
                                     <td className="border-2 border-black text-sm text-gray-400">{el.category}</td>
                                     <td className="border-2 border-black px-4 py-2">
