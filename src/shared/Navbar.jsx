@@ -24,10 +24,11 @@ export default function Navbar() {
                     <IoPersonCircleOutline size={24} className="cursor-pointer" />
                 </Link>
 
-                <Link to="/Cart">
+                <Link to="/Cart" className="flex">
                     <IoBagOutline size={24} className="cursor-pointer" />
+                    <span className="bg-red-600 text-white rounded-sm  text-[16px] w-6 h-6 flex items-center justify-center">{cartCount}</span>
                 </Link>
-                <span className="bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center">{cartCount}</span>
+
             </div>
         </div>
     )
