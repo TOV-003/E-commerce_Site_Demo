@@ -1,5 +1,5 @@
 import Layout from "../shared/Layout.jsx";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ProductContext } from "../Context/ProductContext.jsx";
 import { Link } from "react-router-dom";
 import PIC from "../assets/PIC.jpg";
@@ -8,9 +8,14 @@ export default function Cart() {
 
     const { cartItems, setCartItems } = useContext(ProductContext);
     const { removeFromCart } = useContext(ProductContext);
+    const [clicked, setClicked] = useState(null);
     function altIMG(e) {
         e.target.src = PIC;
         e.target.onerror = null;
+    }
+
+    function showSize(id) {
+        setClicked(prev => prev === id ? null : id);
     }
 
 
@@ -32,7 +37,7 @@ export default function Cart() {
                                 <th className="border-2 border-black px-4 py-2">Category</th>
                                 <th className="border-2 border-black px-4 py-2">Remove</th>
                             </tr>
-                            {cartItems?.map((el) => (
+                            {cartItems?.map((el, index) => (
                                 <tr>
                                     <td className="border-2 border-black px-4 py-2">
                                         <Link to={`/SingleProductPage/${el.id}`}>
@@ -61,8 +66,31 @@ export default function Cart() {
                                         </div>
                                     </td>
                                     <td className="border-2 border-black px-4 py-2">${Number(el.price) * Number(el.quantity)}</td>
-                                    <td className="border-2 border-black px-4 py-2">{el.size}</td>
-                                    <td className="border-2 border-black text-sm text-gray-400">{el.category}</td>
+                                    <td className="border-2 border-black px-4 py-2" key={index}>
+                                        <div className="relative">
+                                            <span onClick={() => showSize(el.id)} className="cursor-pointer">{el.size}</span>
+                                            {
+                                                clicked === el.id ?
+                                                    <div className="flex border-2 border-black absolute gap-2 items-center p-2 bg-white justify-self-center">
+                                                        {
+                                                            el?.sizes?.map((el2, index) => {
+                                                                if (el.size === el2) {
+                                                                    return (<div key={index} className="border-2 border-green-800 bg-emerald-500 w-12 text-center text-2xl  aspect-square cursor-pointer">{el2}</div>)
+                                                                }
+                                                                else {
+                                                                    return (<div key={index} className="border-2 border-gray-800 w-12 text-center text-2xl  aspect-square cursor-pointer" onClick={() => setCartItems(prev =>
+                                                                        prev.map(item => item.id === el.id ? { ...item, size: el2 } : item)
+                                                                    )}>{el2}</div>)
+                                                                }
+                                                            })
+                                                        }
+                                                    </div>
+                                                    :
+                                                    null
+                                            }
+                                        </div>
+                                    </td>
+                                    <td className="border-2 border-black">{el.category}</td>
                                     <td className="border-2 border-black px-4 py-2">
                                         <button className="bg-black px-4 py-2 text-xl text-white rounded-md text-center w-full cursor-pointer" onClick={() => removeFromCart(el.id, el.size)}>Remove</button>
                                     </td>
