@@ -16,6 +16,9 @@ export default function Home() {
                     <div className="section1 flex flex-col gap-2 items-center">
                         <p className="text-4xl text-white font-black">CATEGORY: KIDS</p>
                         <ProductItems products={kids} />
+
+
+
                     </div>
                 </div>
             </div>

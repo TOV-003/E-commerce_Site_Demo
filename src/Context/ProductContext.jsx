@@ -14,7 +14,7 @@ function ProductProvider({ children }) {
 
     async function getProducts() {
         try {
-            const response = await fetch("http://localhost:8000/products");
+            const response = await fetch("https://6a018dad36fb6ad04de122ae.mockapi.io/e-com-demo/products");
             return await response.json();
         }
         catch (err) {
